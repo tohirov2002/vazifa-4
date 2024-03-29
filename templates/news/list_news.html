@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    All news
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1 class="text-info mt-3 text-center">Barcha Yangilikalr bizda</h1>
+          <div class="row mt-5">
+        {% for news in news_list %}
+        <div class="col-md-4">
+            <div class="card mb-5">
+                <img width="100%" height="300" src="{% static news.news_image %}" class="card-img-top" alt="Images">
+                <div class="card-body">
+                    <h5 class="card-title">{{ news.news_title }}</h5>
+                    <p class="card-text">{{ news.news_description }}</p>
+                    <p class="card-text">{{ news.content }}</p>
+                    <p class="card-text">malumot <span class="text-info">{{ news.pub_date }}</span> vaqtda qo'shildi</p>
+                    <p class="card-text"><span class="text-success">{{ news.category }}</span> yangiliklari</p>
+                    <p class="card-text">bu malumotni <span class="text-danger">{{ news.author }}</span> nomli foydalanuvchi qo'shdi</p>
+                    <div class="text-center d-flex justify-content-between">
+                        <a href="{% url 'edit_news' news.pk %}" class="btn btn-info text-white me-3">edit commander</a>
+                        <a href="{% url 'delete_news' news.pk %}" class="btn btn-danger">Delete</a>
+                        <a href="{% url 'detail_news' news.pk %}" class="btn btn-success text-white">too see</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+{% endblock %}

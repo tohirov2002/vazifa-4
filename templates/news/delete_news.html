@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Delete news
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1 class="text-info mt-3 text-center">Malumot o'chirish</h1>
+        <h2 class="text-danger mt-3 text-center">Malumotni haqiqatdan o'chirmoqchimisz?</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Delete news" class="btn btn-danger mt-2">
+            <div style="width: 500px"><a style="width: 1300px" href="{% url 'list_news' %}" class="btn btn-info mt-3 text-white">Cancel</a></div>
+        </form>
+    </div>
+{% endblock %}
