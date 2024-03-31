@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Email page
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1 class="text-center mt-3 text-info">User Email page</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <fieldset>
+                <p>
+                <label for="email">Where:</label>
+                <input type="email" name="email" id="email">
+                </p>
+                <p>
+                <label for="subject">Subject:</label>
+                <input type="text" name="subject" id="subject">
+                </p>
+                <p>
+                <label for="message">Message:</label>
+                <input type="text" name="message" id="message">
+                </p>
+            <input class="btn btn-success mt-3" type="submit" value="Send message">
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}

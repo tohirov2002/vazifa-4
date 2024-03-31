@@ -36,6 +36,7 @@
         </li>
       </ul>
         {% if user.is_authenticated %}
+        <div class="me-3"><a href="{% url 'email_page' %}" class="btn btn-warning text-white" type="submit">Murojat</a></div>
         <div class="dropdown">
             <button class="btn btn-info text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             {% if user.first_name %}
@@ -49,6 +50,7 @@
             <hr>
             <li><a class="dropdown-item" href="#">password change</a></li>
             <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+            <li><a class="dropdown-item" href="{% url 'email_page' %}">Email</a></li>
         </ul>
         </div>
         {% else %}
